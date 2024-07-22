@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Document</title>
+</head>
+<body>
+    <header class="nav">
+        <div class="logo">
+          <img id="nav-logo" src="{% static 'media/logo.png' %}" alt="logo" />
+          <h2 id="nav-title">Bubble My Tea</h2>
+        </div>
+        <div class="profile">
+          <img id="profile-png" src="{% static 'media/profile.png' %}" alt="" />
+          <a id="profile-btn" href="../profile">Profile</a>
+        </div>
+    </header>
+    <main class="main-page">
+        {% if messages %}
+            {% for message in messages %}
+            <div class={{ message.tags}}>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        
+        <h2 id="index-title"> Welcome, <span style="color:#3a86ff; text-transform: capitalize;">{{ myUser.username }}</span></h2>
+        <p style="color:#fb5607; margin-bottom: 10pt;">Your orders :</p>
+
+        {% for order in orders %}
+        <p class="order-list">
+            <span id="order-date">{{ order.date|date:'Y-m-d' }} at {{ order.date|time:'H:i' }}</span><br>
+            {% if order.size == 1 %}
+                S <span id="order-flavour">{{ order.flavour }}</span> <span id="order-base">{{ order.base }}</span> with <span id="order-popping">{{order.popping}} Popping</span> - {{ order.price }} € 
+            {% elif order.size == 2 %}
+                M <span id="order-flavour">{{ order.flavour }}</span> <span id="order-base">{{ order.base }}</span> with <span id="order-popping">{{order.popping}} Popping</span> - {{ order.price }} € 
+            {% elif order.size == 3 %}
+                L <span id="order-flavour">{{ order.flavour }}</span> <span id="order-base">{{ order.base }}</span> with <span id="order-popping">{{order.popping}} Popping</span> - {{ order.price }} € 
+            {% endif %}
+        </p>
+        {% endfor %}
+        
+        <a id="order-btn" href="{% url 'home' %}">Order Bubble Tea</a>
+    </main>
+
+</body>
+</html>

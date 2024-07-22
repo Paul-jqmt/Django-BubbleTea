@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <title>Bubble My Tea</title>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="logo">
+      <img id="nav-logo" src="{% static 'media/logo.png' %}" alt="logo" />
+      <h2 id="nav-title">Bubble My Tea</h2>
+    </div>
+    <div class="profile">
+      <img id="profile-png" src="{% static 'media/profile.png' %}" alt="" />
+      <a id="profile-btn" href="../profile">Profile</a>
+    </div>
+  </header>
+  <main class="main-page">
+    <form action="" method="POST" id="drink-selection">
+      {% csrf_token %}
+      <label class="option-label" for="base">Drink base:</label>
+      <select class="option-value" name="base" id="">
+          {% for base in bases%}
+          <option value="{{ base.base_id}}">{{ base.base}}</option>
+          {%endfor%}
+      </select>
+      <br><br>
+      <label class="option-label" for="flavour">Flavour:</label>
+      <select class="option-value" name="flavour" id="">
+          {% for flavour in flavours%}
+              <option value="{{ flavour.flavour_id}}">{{ flavour.flavour}}</option>
+          {%endfor%}
+      </select>
+      <br><br>
+      <label class="option-label" for="popping">Popping:</label>
+      <select class="option-value" name="popping" id="">
+          {% for popping in poppings%}
+              <option value="{{popping.popping_id}}">{{ popping.popping}}</option>
+          {%endfor%}
+      </select><br><br>
+      <label class="option-label" for="sugar">Sugar</label>
+      <select class="option-value" name="sugar" id="">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+      </select><br><br>
+      <label class="option-label" for="size">Size</label>
+      <select class="option-value" name="size" id="">
+          <option value="1">Small</option>
+          <option value="2">Medium</option>
+          <option value="3">Big</option>
+      </select>
+      <br><br>
+      <input type="submit" value="Place order">
+    </form>
+  </main>
+</body>
+
+</html>

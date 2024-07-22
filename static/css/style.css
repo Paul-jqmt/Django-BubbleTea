@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+
+* {
+    font-family: "Epilogue", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main-color: #fff;
+    --yellow-color: #ffbe0b;
+    --orange-color: #fb5607;
+    --pink-color: #ff006e;
+    --purple-color: #8338ec;
+    --blue-color: #3a86ff;
+}
+
+html {
+    height: 100%;
+    background-color: var(--main-color);
+}
+
+/* ======== Login Page ======== */
+
+.register-form {
+    width: 170pt;
+    margin: auto;
+    margin-top: 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo-container {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+#logo {
+    display: block;
+    margin: auto;
+    height: 35pt;
+}
+
+#form-title {
+    color: var(--pink-color);
+    font-family: "Modak", sans-serif;
+    font-weight: 400;
+    font-size: 25pt;
+    margin-bottom: 20pt;
+    text-align: center;
+}
+
+.form-input {
+    width: 148pt;
+    padding: 7pt 10pt;
+    border: 1pt solid var(--blue-color);
+    margin-bottom: 10pt;
+    color: var(--blue-color);
+    border-radius: 10pt;
+}
+
+.form-input.error {
+    border-color: var(--pink-color);
+}
+
+.form-input:focus {
+    outline: 2pt solid var(--blue-color);
+}
+
+::placeholder {
+    color: var(--blue-color);
+    opacity: 0.5;
+}
+
+input[type="submit"] {
+    width: 100%;
+    margin-top: 10pt;
+    padding: 7pt 10pt;
+    font-weight: bold;
+    color: var(--main-color);
+    background-color: var(--blue-color);
+    border: 1pt solid var(--blue-color);
+    border-radius: 10pt;
+}
+
+input[type="submit"]:hover {
+    color: var(--blue-color);
+    background-color: var(--main-color);
+    border: 1pt solid var(--blue-color);
+    cursor: pointer;
+}
+
+input[type="submit"]:active {
+    background-color: var(--pink-color);
+    border: 1pt solid var(--pink-color);
+    color: var(--main-color);
+}
+
+#redirect-container {
+    text-align: center;
+    margin-top: 10pt;
+    font-size: 10pt;
+}
+
+#redirect-link {
+    color: var(--pink-color);
+    font-weight: bold;
+}
+
+#redirect-link:hover {
+    text-decoration: underline;
+}
+
+#redirect-link:active {
+    color: var(--blue-color);
+}
+
+/* ======== Nav Bar ======== */
+
+#nav-logo {
+    display: block;
+    height: 25pt;
+}
+
+#nav-title {
+    color: var(--pink-color);
+    font-family: "Modak", sans-serif;
+    font-weight: 400;
+    font-size: 20pt;
+    margin-bottom: 20pt;
+}
+
+.logo {
+    display: flex;
+    align-items: baseline;
+}
+
+#profile-png {
+    width: 20pt;
+    margin-right: 5pt;
+}
+
+#profile-btn {
+    font-size: 12pt;
+    color: var(--blue-color);
+}
+
+#profile-btn:hover {
+    text-decoration: underline;
+}
+
+#profile-btn:active {
+    color: var(--orange-color);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    background-color: var(--main-color);
+    padding: 10pt 15pt;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+/* ======== Home Page ======== */
+
+.main-page {
+    width: fit-content;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.option-label {
+    color: var(--orange-color);
+    margin-right: 5pt;
+    font-size: 10pt;
+}
+
+.option-value {
+    padding: 4pt 7pt;
+    border: 1pt solid var(--blue-color);
+    border-radius: 10pt;
+}
+
+/* ======== Index Page ======== */
+
+#index-title {
+    margin-bottom: 10pt;
+}
+
+#order-date {
+    font-size: 10pt;
+}
+
+#order-flavour {
+    color: #ff006e;
+    text-transform: capitalize;
+}
+
+#order-base {
+    text-transform: capitalize;
+}
+
+#order-popping {
+    color: var(--purple-color);
+    text-transform: capitalize;
+}
+
+.order-list {
+    margin-bottom: 10pt;
+}
+
+#order-btn {
+    margin-top: 10pt;
+    text-decoration: none;
+    font-size: 11pt;
+    padding: 7pt 10pt;
+    color: var(--main-color);
+    background-color: var(--blue-color);
+    border: 1pt solid var(--blue-color);
+    border-radius: 10pt;
+}
+
+#order-btn:hover {
+    color: var(--blue-color);
+    background-color: var(--main-color);
+    border: 1pt solid var(--blue-color);
+    cursor: pointer;
+}
+
+#order-btn:active {
+    background-color: var(--pink-color);
+    border: 1pt solid var(--pink-color);
+    color: var(--main-color);
+}
+
+/* ======== Profile Page ======== */
+
+.profile-label {
+    font-size: 10pt;
+}
+
+.profile-input {
+    border: 1pt solid var(--orange-color);
+    padding: 4pt 10pt;
+    margin-bottom: 10pt;
+    border-radius: 10pt;
+}
+
+.profile-input:focus {
+    outline: 1.5pt solid #fb5607;
+}
+
+#home-btn {
+    text-decoration: none;
+    color: var(--blue-color);
+}
+
+#home-btn:hover {
+    text-decoration: underline;
+}
+
+#home-btn:active {
+    color: var(--orange-color);
+}
+
+#error {
+    margin-top: 20pt;
+    font-size: 10pt;
+    color: var(--purple-color);
+    text-align: center;
+}
+
+#logout-btn {
+    margin-left: 10pt;
+    text-decoration: none;
+    color: var(--pink-color);
+}
+
+#logout-btn:hover {
+    text-decoration: underline;
+}
+
+#logout-btn:active {
+    color: var(--purple-color);
+}

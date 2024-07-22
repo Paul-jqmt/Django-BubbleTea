@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Bubble My Tea</title>
+  </head>
+
+  <body>
+    <main>
+      <div id="login" class="register-form">
+        <div class="logo-container">
+          <img id="logo" src="{% static 'media/logo.png' %}" alt="logo" />
+          <h2 id="form-title">Bubble My Tea</h2>
+        </div>
+        <form id="login-form" method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+          <input
+            name="username"
+            id="username"
+            class="form-input"
+            type="text"
+            placeholder="Surname"
+            maxlength="13"
+          /><br />
+          <input
+            name="password"
+            id="user-password"
+            class="form-input"
+            type="password"
+            placeholder="Password"
+          /><br />
+          <input id="login-btn" type="submit" value="Login" />
+        </form>
+        <p id="redirect-container">
+          Don't have an account?
+          <a href="../signup" id="redirect-link">Make one</a>
+        </p>
+      </div>
+    </main>
+    {% if messages %}
+       {% for message in messages %}
+       <div id="error"  class={{ message.tags}}>{{ message }}</div>
+       {% endfor %}
+  {% endif %}
+  </body>
+</html>

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <title>Bubble My Tea</title>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="logo">
+      <img id="nav-logo" src="{% static 'media/logo.png' %}" alt="logo" />
+      <h2 id="nav-title">Bubble My Tea</h2>
+    </div>
+    <div class="profile">
+      <a id="home-btn" href="../index">Back</a>
+      <a id="logout-btn" href="{% url 'logout' %}">Log out</a>
+    </div>
+  </header>
+  <main class="main-page">
+    <h2 id="index-title">
+      Welcome, <span style="color:#3a86ff; text-transform: capitalize;">{{ myUser.username }}</span>
+  </h2>
+    <form action="" method="post" action="{% url 'profile' %}">
+        {% csrf_token%}
+        <label class="profile-label" for="name">Name :</label>
+        <input class="profile-input" type="text" name="name" id="" value="{{ myUser.name }}" maxlength="20"><br>
+        <label class="profile-label" for="surname">Surname :</label>
+        <input class="profile-input" type="text" name="surname" id="" value="{{ myUser.surname }}" maxlength="13"><br>
+        <label class="profile-label" for="username">Username :</label>
+        <input class="profile-input" type="text" name="username" id="" value="{{ myUser.username }}" maxlength="20" disabled><br>
+        <label class="profile-label" for="password">Password :</label>
+        <input class="profile-input" type="password" name="password" id="" value="{{ myUser.password }}" maxlength="20"><br>
+        <input type="submit" value="Edit Profile" />
+    </form>
+    {% if messages %}
+       {% for message in messages %}
+       <div id="error"  class={{ message.tags}}>{{ message }}</div>
+       {% endfor %}
+  {% endif %}
+</body>
+
+</html>

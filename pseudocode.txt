@@ -1,0 +1,37 @@
+DATA BASE 
+create database bubble_tea
+add table customer with customer_id, name, surname, username, password, admin
+add table drink_base with base_id and descirption
+add table drink_flavour with flavour_id, descirption and base_id
+add table drink_popping with popping_id, description and base_id
+add table product with purchase_id, base_id, flavour_id, popping_id, sugar, size, price
+add table customer_purchase with purchase_id, customer_id and purchase_date to link purchase to customer
+
+PROJECT SETUP
+configure templates
+configure static and media files in settings and urls
+create a new view, urls and templates
+configure template inheritance and partials
+
+USER REGISTER
+create register form
+write view to register
+configure template to show form
+redirect to login from register
+
+USER LOGIN 
+write view to login
+configure template to grab input field
+login to home from login
+
+USER LOGOUT
+write view to logout user
+configure URL 
+
+USER PROFILE
+create update form
+write view to profile 
+configire template todisplay and grab inout field
+update data in database
+display succes message
+

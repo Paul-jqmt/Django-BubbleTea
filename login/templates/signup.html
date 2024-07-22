@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Bubble My Tea</title>
+  </head>
+
+  <body>
+    <main>
+      <div id="signup" class="register-form">
+        <div class="logo-container">
+          <img id="logo" src="{% static 'media/logo.png' %}" alt="logo" />
+          <h2 id="form-title">Bubble My Tea</h2>
+        </div>
+        <form id="signup-form" method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+          <input
+            name="name"
+            id="name"
+            class="form-input"
+            type="text"
+            placeholder="Name"
+            maxlength="20"
+            required
+          /><br />
+          <input
+            name="surname"
+            id="surname"
+            class="form-input"
+            type="text"
+            placeholder="Surname"
+            maxlength="13"
+            required
+          /><br />
+          <input
+            name="username"
+            id="username"
+            class="form-input"
+            type="text"
+            placeholder="Username"
+            maxlength="13"
+          /><br />
+          <input
+            name="password"
+            id="user-password"
+            class="form-input"
+            type="password"
+            placeholder="Password"
+            required
+          /><br />
+          <input id="signup-btn" type="submit" value="Sign up" />
+        </form>
+        <p id="redirect-container">
+          Already have an account?
+          <a href="../login" id="redirect-link">Login</a>
+        </p>
+      </div>
+    </main>
+    {% if messages %}
+       {% for message in messages %}
+       <div id="error"  class={{ message.tags}}>{{ message }}</div>
+       {% endfor %}
+  {% endif %}
+  </body>
+</html>
